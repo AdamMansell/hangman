@@ -10,6 +10,7 @@ end
 
 get('/play') do
   @game = Game.new()
+  @mystery_word = @game.get_blanks
   erb(:play)
 end
 
@@ -17,6 +18,5 @@ patch('/play') do
   letter = params[:letter]
   erb(:play)
 end
-
 
 

@@ -5,13 +5,19 @@ class Game
     @possible_words = ['cracking', 'codes', 'ciphers']
     @chosen_word = @possible_words.sample
     @guesses = []
-    @gallows = true #counter 0
-    @head = false # 1
-    @body = false # 2
-    @rarm = false # 3
-    @larm = false # 4
-    @rleg = false # 5
-    @lleg = false # 6
+    @gallows = true 
+    @head = false 
+    @body = false 
+    @rarm = false 
+    @larm = false 
+    @rleg = false 
+    @lleg = false 
+  end
+
+  def get_blanks
+    mystery_word = ""
+    @chosen_word.each_char {|c|mystery_word.concat("_ ")}
+    mystery_word
   end
 
   def guess(letter)
@@ -19,7 +25,7 @@ class Game
     if @guesses.include?(letter)
       return "You've already guessed that letter"
     elsif @chosen_word.include?(letter)
-      return fill_in(letter) # not yet made
+      return fill_in(letter) 
     else
       @guesses.push(letter)
       counter = @guesses.length
@@ -49,13 +55,6 @@ class Game
     return "Fill-in method has been invoked"
   end
 
-  # Guess (letter)
-  # Check if letter already in @guesses, and return error message
-  # Check if the  letter is in the@word
-    # Populate the letter in @word
-  # If the letter is not in @word
-    # Add the guess to the @guesses array
-    # call a draw method
 
 # Display word
 
@@ -66,42 +65,4 @@ class Game
 # Play Method
   # Check for wins and loss scenarios
   # Run guess method
-
-  
 end
-
-
-
-
-
-
-
-
-# class Artist
-#   attr_reader :id
-#   attr_accessor :name, :stage_id
-
-#   @@artists = {}
-#   @@total_rows = 0
-
-#   def initialize(name, stage_id, id)
-#     @name = name
-#     @stage_id = stage_id
-#     @id = id || @@total_rows += 1
-#   end
-
-#   def ==(artist_to_compare)
-#     (self.name() == artist_to_compare.name()) && (self.stage_id() == artist_to_compare.stage_id())
-#   end
-
-#   def self.all
-#     @@artists.values
-#   end
-
-#   def save
-#     @@artists[self.id] = Artist.new(self.name, self.stage_id, self.id)
-#   end
-
-#  def self.find(id)
-#     @@artists[id]
-#   end
