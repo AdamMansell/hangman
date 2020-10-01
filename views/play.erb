@@ -1,100 +1,115 @@
+<%# Header %>
+<div class="jumbotron text-center">
+  <h1 class="display-4">Hangman</h1>
+  <hr>
+  <h4 class="text-muted">Let's Play!</h4>
+</div>
+<%# Game Grids %>
 <div class="container">
   <div class="row">
-    <div class="col-8">
-      <%# for top left side of screen %>
-      <div class="card shadow border-primary"> 
-        <h5 class="card-title">Hangman Body</h5>
-        <% if @game.gallows %>
-            <p>-------------</p>
-            <p>            |</p>
-            <p>            |</p>
-            <p>            |</p>
-            <p>            |</p>
-            <p>            |</p>
-            <p>        ----|----</p>
-        <% elsif @game.head%>
-            <p>-------------</p>
-            <p>  |         |</p>
-            <p>  O         |</p>
-            <p>            |</p>
-            <p>            |</p>
-            <p>            |</p>
-            <p>        ----|----</p>
-        <% elsif @game.body%>
-            <p>-------------</p>
-            <p>  |         |</p>
-            <p>  O         |</p>
-            <p>  |         |</p>
-            <p>  |         |</p>
-            <p>            |</p>
-            <p>        ----|----</p>
-        <% elsif @game.rarm%>
-            <p>-------------</p>
-            <p>  |         |</p>
-            <p>  O         |</p>
-            <p>--|         |</p>
-            <p>  |         |</p>
-            <p>            |</p>
-            <p>            |</p>
-            <p>            |</p>
-            <p>            |</p>
-            <p>        ----|----</p>
-        <% elsif @game.larm%>
-            <p>-------------</p>
-            <p>  |         |</p>
-            <p>  O         |</p>
-            <p>--|--       |</p>
-            <p>  |         |</p>
-            <p>            |</p>
-            <p>        ----|----</p>
-        <% elsif @game.rleg%>
-            <p>-------------</p>
-            <p>  |         |</p>
-            <p>  O         |</p>
-            <p>--|--       |</p>
-            <p>  |         |</p>
-            <p>   \        |</p>
-            <p>        ----|----</p>
-        <% else %>%
-            <p>"-------------</p>
-            <p>  |         |</p>
-            <p>  O         |</p>
-            <p>--|--       |</p>
-            <p>  |         |</p>
-            <p> / \        |</p>
-            <p>        ----|----</p>
-        <%end%>
+    <div class="col-sm">
+      <%# Top Left: Gallows Drawing %>
+      <div class="card shadow border"> 
+        <div class="card-body">
+          <h5 class="card-title text-center">THE GALLOWS!!!</h5>
+          <% if @game.gallows %>
+              <p>-------------</p>
+              <p>            |</p>
+              <p>            |</p>
+              <p>            |</p>
+              <p>            |</p>
+              <p>            |</p>
+              <p>        ----|----</p>
+          <% elsif @game.head%>
+              <p>-------------</p>
+              <p>  |         |</p>
+              <p>  O         |</p>
+              <p>            |</p>
+              <p>            |</p>
+              <p>            |</p>
+              <p>        ----|----</p>
+          <% elsif @game.body%>
+              <p>-------------</p>
+              <p>  |         |</p>
+              <p>  O         |</p>
+              <p>  |         |</p>
+              <p>  |         |</p>
+              <p>            |</p>
+              <p>        ----|----</p>
+          <% elsif @game.rarm%>
+              <p>-------------</p>
+              <p>  |         |</p>
+              <p>  O         |</p>
+              <p>--|         |</p>
+              <p>  |         |</p>
+              <p>            |</p>
+              <p>            |</p>
+              <p>            |</p>
+              <p>            |</p>
+              <p>        ----|----</p>
+          <% elsif @game.larm%>
+              <p>-------------</p>
+              <p>  |         |</p>
+              <p>  O         |</p>
+              <p>--|--       |</p>
+              <p>  |         |</p>
+              <p>            |</p>
+              <p>        ----|----</p>
+          <% elsif @game.rleg%>
+              <p>-------------</p>
+              <p>  |         |</p>
+              <p>  O         |</p>
+              <p>--|--       |</p>
+              <p>  |         |</p>
+              <p>   \        |</p>
+              <p>        ----|----</p>
+          <% else %>%
+              <p>"-------------</p>
+              <p>  |         |</p>
+              <p>  O         |</p>
+              <p>--|--       |</p>
+              <p>  |         |</p>
+              <p> / \        |</p>
+              <p>        ----|----</p>
+          <%end%>
+        </div>
       </div>
     </div>
-    <div class="col-4">
-      <%# # for right side of screen %>
-      <div class="card shadow border-primary">
-        <h5 class="card-title">Incorrect Letters</h5>
-        <ul class="card-text"> incorrect letters here </ul>
+    <div class="col-sm">
+      <%# Bottom Right: Guess Form %>
+      <div class="card shadow border">
+        <div class="card-body text-center">
+        <h5 class="card-title">LETTER GUESS</h5>
+          <form action='/play' method='post'>
+            <input name="_method" type="hidden" value="patch">
+            <div class="form-group">
+              <label for="letter">Enter a letter guess (Example "a"):</label>
+              <input id="letter" name="letter" class="form-control mx-auto" type="text" style="width:25%">
+            </div>
+            <button type="submit" class="btn">Submit Letter Guess!</button>
+          </form>
+        </div>
+      </div>
+      <br>
+      <br>
+      <%# Top Right: Incorrect Letters Display %>
+      <div class="card shadow border">
+        <div class="card-body text-center">
+          <h5 class="card-title text-center">INCORRECT GUESSES</h5>
+          <p class="card-text"> Incorrect letters here </p>
+        </div>
       </div>
     </div>
   </div>
-
+  <br>
   <div class="row">
-    <div class="col-8">
-      <%# # for bottom left side of screen %>
-      <div class="card shadow border-primary">
-        <p> word to guess / letters guessed correctly </p>
-      </div>
-    </div>
-    <div class="col-4">
-      <%# # for bottom right side of screen %>
-      <div class="card shadow border-primary">
-
-        <form action='/play' method='post'>
-          <input name="_method" type="hidden" value="patch">
-          <div class="form-group">
-            <label for="letter">Enter your letter guess (example "a"):</label>
-            <input id="letter" name="letter" class="form-control" type="text">
-          </div>
-          <button type="submit" class="btn">Submit Letter Guess!</button>
-        </form>
-
+    <div class="col-sm">
+      <%# Bottom Left: Mystery Word %>
+      <div class="card shadow border">
+        <div class="card-body text-center">
+          <h5 class="card-title">MYSTERY WORD</h5>
+          <p class="card-text">_ _ _ _ _</p>
+        </div>
       </div>
     </div>
   </div>

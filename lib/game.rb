@@ -29,7 +29,7 @@ class Game
       elsif counter == 2
         @body = true
         @head = false
-      elsif counter ==3
+      elsif counter == 3
         @rarm = true
         @body = false
       elsif counter == 4
