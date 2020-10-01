@@ -41,5 +41,6 @@ describe('#Game') do
       expect(game.guess('c')).to(eq("Fill-in method has been invoked"))
     end
   end
+  # Need test for get_blanks, save, self.find
 
 end
