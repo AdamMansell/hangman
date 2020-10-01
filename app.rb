@@ -9,6 +9,12 @@ get('/') do
 end
 
 get('/play') do
+  @game = Game.new()
+  erb(:play)
+end
+
+patch('/play') do
+  letter = params[:letter]
   erb(:play)
 end
 

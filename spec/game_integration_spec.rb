@@ -16,7 +16,7 @@ describe '#Game' do
   describe('create a play page', {:type => :feature}) do
     it('creates a play page page') do
       visit('/play')
-      expect(page).to have_content('guessed')
+      expect(page).to have_content('|')
     end
   end
 

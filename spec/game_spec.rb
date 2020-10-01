@@ -12,7 +12,33 @@ describe('#Game') do
   describe('#chosen_word') do
     it('returns selected word') do
       game = Game.new()
-      expect(game.chosen_word).to(eq('cracking' || 'codes' || 'building' || 'breaking' || 'python' || 'ciphers'))
+      expect(game.chosen_word.match?(/cracking|codes|ciphers/)).to(eq(true))
+    end
+  end
+
+  describe('#guess') do
+    it('handles an incorrect guess') do
+      game = Game.new()
+      game.guess('Z')
+      expect(game.guesses).to(eq(['z']))
+      expect(game.gallows).to(eq(false))
+      expect(game.head).to(eq(true))
+    end
+  end
+
+  describe('#guess') do
+    it('handles a letter already guessed') do
+      game = Game.new()
+      game.guess('Z')
+      expect(game.guess('z')).to(eq("You've already guessed that letter"))
+    end
+  end
+
+  describe('#guess') do
+    it('handles a correct guess') do
+      game = Game.new()
+      game.guess('Z')
+      expect(game.guess('c')).to(eq("Fill-in method has been invoked"))
     end
   end
 
