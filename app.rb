@@ -8,9 +8,9 @@ get('/') do
   erb(:home)
 end
 
-# get('/play') do
-
-# end
+get('/play') do
+  erb(:play)
+end
 
 
 

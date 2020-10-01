@@ -12,6 +12,13 @@ describe '#Game' do
       expect(page).to have_link("Play", :href=>"/play")
     end
   end
-  
+
+  describe('create a play page', {:type => :feature}) do
+    it('creates a play page page') do
+      visit('/play')
+      expect(page).to have_content('guessed')
+    end
+  end
+
 end
 
