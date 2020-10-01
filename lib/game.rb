@@ -26,7 +26,7 @@ class Game
 
   def get_blanks
     mystery_word = ""
-    @chosen_word.each_char {|c|mystery_word.concat("_ ")}
+    @chosen_word.each_char {|c|mystery_word.concat("_  ")}
     mystery_word
   end
 
@@ -62,7 +62,15 @@ class Game
   end
 
   def fill_in(letter)
-    return "Fill-in method has been invoked"
+    mystery_word = ""
+    @chosen_word.each_char do |c|
+      if c == letter
+        mystery_word.concat("#{c}  ")
+      else
+        mystery_word.concat("_  ")
+      end
+    end
+    return mystery_word
   end
 
 

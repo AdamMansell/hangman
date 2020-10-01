@@ -20,5 +20,6 @@ patch('/play') do
   @game = Game.find
   @game.guess(letter)
   @wrong_guesses = @game.guesses.join(", ")
+  @mystery_word = @game.fill_in(letter)
   erb(:play)
 end
