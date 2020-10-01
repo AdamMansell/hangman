@@ -1,9 +1,11 @@
 class Game
   attr_reader :chosen_word, :guesses, :gallows, :head, :body, :rarm, :larm, :rleg, :leg
 
+  @@games = {}
+  @@possible_words = ['cracking', 'codes', 'ciphers']
+
   def initialize()
-    @possible_words = ['cracking', 'codes', 'ciphers']
-    @chosen_word = @possible_words.sample
+    @chosen_word = @@possible_words.sample
     @guesses = []
     @gallows = true 
     @head = false 
@@ -12,6 +14,14 @@ class Game
     @larm = false 
     @rleg = false 
     @lleg = false 
+  end
+
+  def save
+    @@games["1"] = Game.new
+  end
+
+  def self.find
+    @@games["1"]
   end
 
   def get_blanks
@@ -55,8 +65,6 @@ class Game
     return "Fill-in method has been invoked"
   end
 
-
-# Display word
 
 # Win Method
 
