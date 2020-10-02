@@ -13,61 +13,76 @@
         <div class="card-body">
           <h5 class="card-title text-center">THE GALLOWS!!!</h5>
           <% if @game.gallows %>
-              <p>-------------</p>
-              <p>            |</p>
-              <p></p>
-              <p></p>
-              <p></p>
-              <p></p>
-              <p> ----|----</p>
+            <div class="text-center">
+              <p>_______________</p>
+              <p>|</p>
+              <br>
+              <br>
+              <br>
+              <br>
+              <br>
+              <p> ----|----|----</p>
+            </div>
           <% elsif @game.head%>
-              <p>-------------</p>
-              <p>            |</p>
-              <p>            O</p>
-              <p></p>
-              <p></p>
-              <p></p>
-              <p> ----|----</p>
+            <div class="text-center">
+              <p>_______________</p>
+              <p>|</p>
+              <p>O</p>
+              <br>
+              <br>
+              <br>
+              <p> ----|----|----</p>
+            </div>
           <% elsif @game.body%>
-              <p>-------------</p>
-              <p>            |</p>
-              <p>            O</p>
-              <p>            |</p>
-              <p>            |</p>
-              <p></p>
-              <p> ----|----</p>
+            <div class="text-center">
+              <p>_______________</p>
+              <p>|</p>
+              <p>O</p>
+              <p>|</p>
+              <p>|</p>
+              <br>
+              <p> ----|----|----</p>
+            </div>
           <% elsif @game.rarm%>
-               <p>-------------</p>
-              <p>            |</p>
-              <p>            O</p>
-              <p>          --|</p>
-              <p>            |</p>
-              <p></p>
-              <p> ----|----</p>
+            <div class="text-center">
+              <p>_______________</p>
+              <p>|</p>
+              <p>O</p>
+              <p>--|</p>
+              <p>|</p>
+              <br>
+              <p> ----|----|----</p>
+            </div>
           <% elsif @game.larm%>
-               <p>-------------</p>
-              <p>            |</p>
-              <p>            O</p>
-              <p>          --|--</p>
-              <p>            |</p>
-              <p></p>
-              <p> ----|----</p>
+            <div class="text-center">
+              <p>_______________</p>
+              <p>|</p>
+              <p>O</p>
+              <p>--|--</p>
+              <p>|</p>
+              <br>
+              <p> ----|----|----</p>
+            </div>
           <% elsif @game.rleg%>
-               <p>-------------</p>
-              <p>            |</p>
-              <p>            O</p>
-              <p>          --|--</p>
-              <p>            |</p>
-              <p>           / </p>
-              <p> ----|----</p>
-          <% else %>%
-               <p>-------------</p>
-              <p>            |</p>
-              <p>            O</p>
-              <p>          --|--</p>
-              <p>            |</p>
-              <p>           / \</p>
-              <p> ----|----</p>
+            <div class="text-center">
+              <p>_______________</p>
+              <p>|</p>
+              <p>O</p>
+              <p>--|--</p>
+              <p>|</p>
+              <p>/</p>
+              <p> ----|----|----</p>
+            </div>
+          <% else %>
+            <div class="text-center">
+              <p>_______________</p>
+              <p>|</p>
+              <p>O</p>
+              <p>--|--</p>
+              <p>|</p>
+              <p>/\</p>
+              <p> ----|----|----</p>
+            </div>
           <%end%>
         </div>
       </div>
