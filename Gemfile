@@ -4,6 +4,6 @@ gem('capybara')
 gem('pry')
 gem('rspec')
 gem('sinatra')      
-gem('sinatra-contrib')t
+gem('sinatra-contrib')
 
 
