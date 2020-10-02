@@ -14,6 +14,7 @@ class Game
     @larm = false 
     @rleg = false 
     @lleg = false 
+    @word_with_blanks = []
   end
 
   def save
@@ -25,18 +26,17 @@ class Game
   end
 
   def get_blanks
-    mystery_word = ""
-    @chosen_word.each_char {|c|mystery_word.concat("_  ")}
-    mystery_word
+    @chosen_word.each_char {|c| @word_with_blanks.push("_  ")}
+    @word_with_blanks.join("")
   end
 
   def guess(letter)
-    letter = letter.downcase
     if @guesses.include?(letter)
-      return "You've already guessed that letter"
+      return
+    #   return "You've already guessed that letter" # Need functionality for this message to appear on UI
     elsif @chosen_word.include?(letter)
-      return fill_in(letter) 
-    else
+      return
+    else 
       @guesses.push(letter)
       counter = @guesses.length
       if counter == 1
@@ -62,23 +62,15 @@ class Game
   end
 
   def fill_in(letter)
-    mystery_word = ""
-    @chosen_word.each_char do |c|
-      if c == letter
-        mystery_word.concat("#{c}  ")
-      else
-        mystery_word.concat("_  ")
+    @chosen_word.split("").each_with_index do |char, index|
+      if char == letter
+        @word_with_blanks[index] = "#{char}  "
       end
     end
-    return mystery_word
+    @word_with_blanks.join("")
   end
 
 
 # Win Method
-
 # Lose Method
-
-# Play Method
-  # Check for wins and loss scenarios
-  # Run guess method
 end

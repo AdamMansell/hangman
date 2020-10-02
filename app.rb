@@ -16,7 +16,7 @@ get('/play') do
 end
 
 patch('/play') do
-  letter = params[:letter]
+  letter = params[:letter].downcase
   @game = Game.find
   @game.guess(letter)
   @wrong_guesses = @game.guesses.join(", ")
