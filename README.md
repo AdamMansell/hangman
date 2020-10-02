@@ -32,31 +32,28 @@ If you're not familiar with Hangman, it works something like this: The spaces at
 | '/play' | Update | PATCH | If the guess is incorrect, add the guessed letter to the incorrect guesses list and add a body part |
 | '/play' | Update | PATCH | If the guess is correct, fill in every occurrence of the letter in the blanks |
 
-## Setup/Installation Requirements_
-
-To View Project:
-* Open a web browser of your choice and navigate to the following page:
-
-To Extend This Project:
-* Clone this project using the 'git clone' command in terminal.
-* Open the cloned repo in a text editor of your choice.
+## Setup/Installation Requirements
 
 - Clone this project using the 'git clone' command in terminal/command line.
 - Navigate to the cloned folder and run 'bundle' in your command line.
 - Open the cloned repo in a text editor of your choice.
 - To run tests: While in the root directory of the project, run 'rspec' in your command line.
-- To run the app.rb file in the terminal, run 'ruby app.rb' in the terminal.
+- To run the program in a server, run 'ruby app.rb' in the terminal and navigate to localhost/4567 in your browser.
 
 ## Known Bugs
+Items to Improve:
 
-_There are no known bugs at this time._
+* Add methods for checking for wins and losses
+* Fix bug where underscores in mystery word disappear after first letter is guessed
+* In 'game.rb', refactor guess method / create check for already entered letter in 'play.erb'
+* Add tests
 
 ## Technologies Used
 
 * Ruby
-* Sinatra
-* Capybara
+* Ruby Gems: Sinatra, Capybara, RSpec, Pry
 * HTML
+* Bootstrap CSS
 
 ### License
 
