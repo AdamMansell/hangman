@@ -33,7 +33,6 @@ class Game
   def guess(letter)
     if @guesses.include?(letter)
       return
-    #   return "You've already guessed that letter" # Need functionality for this message to appear on UI
     elsif @chosen_word.include?(letter)
       return
     else 
@@ -69,8 +68,4 @@ class Game
     end
     @word_with_blanks.join("")
   end
-
-
-# Win Method
-# Lose Method
 end
